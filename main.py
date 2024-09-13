@@ -24,15 +24,15 @@ OCR_HAND = 32649  # link select
 # Set up tkinter application window
 ########
 
+folder_path = None
+
 
 def select_folder():
     # open folder selection dialog
+    global folder_path
     folder_path = filedialog.askdirectory()
     if folder_path:
         label.config(text=f"Selected Folder: {folder_path}")
-        return folder_path
-    else:
-        return None
 
 
 # create main application window
@@ -48,6 +48,9 @@ button.pack(pady=20)
 label = tk.Label(root, text="No folder selected.")
 label.pack(pady=20)
 
+exit = tk.Button(root, text="Set Custom Cursor", command=root.destroy)
+exit.pack(pady=20)
+
 # start GUI event loop
 root.mainloop()
 
@@ -55,6 +58,19 @@ root.mainloop()
 ########
 # Set custom cursor
 ########
+
+
+def open_folder(path: str):
+    files = [
+        file for file in os.listdir(path) if os.path.isfile(os.path.join(path, file))
+    ]
+
+
+if folder_path:
+    print(f"Opening folder {folder_path}")
+    open_folder(folder_path)
+else:
+    print("No folder path specified!")
 
 # get path to cursor pack
 
