@@ -1,5 +1,7 @@
 import ctypes
 import os
+import tkinter as tk
+from tkinter import filedialog
 
 
 # Microsoft constants
@@ -17,6 +19,42 @@ OCR_SIZENS = 32645  # vertical resize
 OCR_SIZEALL = 32646  # move
 OCR_UP = 32516  # alternate select
 OCR_HAND = 32649  # link select
+
+########
+# Set up tkinter application window
+########
+
+
+def select_folder():
+    # open folder selection dialog
+    folder_path = filedialog.askdirectory()
+    if folder_path:
+        label.config(text=f"Selected Folder: {folder_path}")
+        return folder_path
+    else:
+        return None
+
+
+# create main application window
+root = tk.Tk()
+root.title("Custom Cursor")
+root.geometry("600x320")
+
+# create and place button that triggers folder selection
+button = tk.Button(root, text="Select Folder", command=select_folder)
+button.pack(pady=20)
+
+# label to display the selected folder
+label = tk.Label(root, text="No folder selected.")
+label.pack(pady=20)
+
+# start GUI event loop
+root.mainloop()
+
+
+########
+# Set custom cursor
+########
 
 # get path to cursor pack
 
