@@ -1,6 +1,6 @@
 # Custom-Cursor
 
-Samik Pradhan
+Creator: Samik Pradhan
 
 ## Overview
 
@@ -17,4 +17,8 @@ This project allows the user to use a custom cursor pack on Windows by running `
 - Python
 - Cursor Pack
 - `Install.inf` file in cursor pack folder
+- Windows
 
+## Notes
+
+This project only runs on Windows. Only Windows 10 has been tested so far.
