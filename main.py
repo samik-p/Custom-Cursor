@@ -128,7 +128,7 @@ for line in file:
             )
 
             if result:
-                print(f"[OK] {cur_line[0]}: Load Successful")
+                print(f"[OK] {cur_line[0]}: {cur_line[1]}")
             else:
                 print(f"[XX] {cur_line[0]}: Load Failed")
 
